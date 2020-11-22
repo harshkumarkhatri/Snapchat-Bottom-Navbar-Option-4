@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:snapchat_bottom_navbar_option_4/Widgets/StoryWidget/forYou_widget.dart';
+import 'package:snapchat_bottom_navbar_option_4/Widgets/StoryWidget/friends_Widget.dart';
+import 'package:snapchat_bottom_navbar_option_4/Widgets/StoryWidget/subscription_Widget.dart';
+import 'package:snapchat_bottom_navbar_option_4/subscriptions_Screen.dart';
 import 'package:snapchat_bottom_navbar_option_4/userDetails_Screen.dart';
 
+import 'Widgets/StoryWidget/friends_myStory_Widget.dart';
 import 'addFriends_Screen.dart';
 // import 'package:snapchat_bottomnavbar_option5/Widgets/discoverSubscriptions_widget.dart';
 // import 'package:snapchat_bottomnavbar_option5/Widgets/forYou_widget.dart';
@@ -39,23 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   // centerTitle: true,
-      //   // leading: Container(
-      //   //   height: 16,
-      //   //   width: 16,
-      //   //   decoration: BoxDecoration(
-      //   //     color: Colors.white,
-      //   //     shape: BoxShape.circle,
-      //   //   ),
-      //   //   child: Icon(
-      //   //     Icons.supervised_user_circle_outlined,
-      //   //     color: Colors.black,
-      //   //   ),
-      //   // ),
-      //   title:
-      //   //  Text(widget.title),
-      // ),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.black,
@@ -102,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               child: Center(
                 child: Text(
-                  'Discover',
+                  'Stories',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
@@ -137,6 +125,115 @@ class _MyHomePageState extends State<MyHomePage> {
                     size: 30,
                   ),
                 ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  showModalBottomSheet(
+                      context: context,
+                      backgroundColor: Colors.transparent,
+                      builder: (context) {
+                        return Padding(
+                          padding: const EdgeInsets.only(),
+                          child: Container(
+                              color: Colors.transparent,
+                              height: 160,
+                              child: Column(
+                                children: [
+                                  Container(
+                                    alignment: Alignment.centerLeft,
+                                    height: 55,
+                                    // color: Colors.white,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(12),
+                                        topRight: Radius.circular(
+                                          12,
+                                        ),
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 8.0),
+                                      child: Text(
+                                        "Manage Subscriptions and Notification",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Divider(height: 0.35),
+                                  Container(
+                                    alignment: Alignment.centerLeft,
+                                    height: 55,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.only(
+                                          // bottomLeft: Radius.circular(12),
+                                          // bottomRight: Radius.circular(
+                                          //   12,
+                                          // ),
+                                          ),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 8.0),
+                                      child: Text(
+                                        "View Hiddedn Channels",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Divider(height: 0.35),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      height: 45,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        // borderRadius: BorderRadius.circular(12),
+                                      ),
+                                      child: Text(
+                                        "Done",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )),
+                        );
+                      });
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 0, right: 8.0),
+                  child: Container(
+                    height: 30,
+                    width: 30,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[350],
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Icon(
+                        Icons.more_horiz,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ),
+                  ),
+                ),
               )
             ],
           )
@@ -156,14 +253,53 @@ class _MyHomePageState extends State<MyHomePage> {
               // right: 15,
             ),
             children: <Widget>[
+              friendsMyStory(),
               Container(
-                child: Text(
-                  "Discover subscriptions",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
+                height: 145,
+                // color: Colors.amber[600],
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.only(
+                    right: 0,
+                    bottom: 8,
+                    top: 4,
                   ),
+                  children: <Widget>[
+                    friends("hemu22"),
+                    friends("Faizan upadhydedededeay"),
+                    friends("Kapil rAj"),
+                    friends("Tanveer"),
+                    friends("Rahul"),
+                    friends("Rohit")
+                  ],
+                ),
+              ),
+              // SizedBox(height: 8),
+              GestureDetector(
+                onTap: () {
+                  print("Pushed");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => subscriptionScreen(),
+                    ),
+                  );
+                },
+                child: Row(
+                  children: [
+                    Container(
+                      child: Text(
+                        "Subscriptions",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                    Icon(Icons.arrow_forward_ios,
+                        color: Colors.grey[600], size: 20)
+                  ],
                 ),
               ),
               Container(
@@ -176,34 +312,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     bottom: 8,
                     top: 4,
                   ),
-                  children: <Widget>[],
+                  children: <Widget>[
+                    subscriptions_widget("Demo name", true),
+                    subscriptions_widget("Mohin khan", false),
+                    subscriptions_widget("Sohit Kasthuriya", false),
+                    subscriptions_widget("Suresh khan", true),
+                    subscriptions_widget("Dan Bilzerian", true),
+                    subscriptions_widget("Ashknoor Khan", true)
+                  ],
                 ),
               ),
-              SizedBox(height: 8),
-              Container(
-                child: Text(
-                  "Continue Watching",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-              Container(
-                height: 170,
-                // color: Colors.amber[600],
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  padding: const EdgeInsets.only(
-                    right: 8,
-                    bottom: 8,
-                    top: 4,
-                  ),
-                  children: <Widget>[],
-                ),
-              ),
-              SizedBox(height: 8),
+              SizedBox(height: 4),
               Container(
                 child: Text(
                   "For You",
@@ -215,15 +334,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 10.0, top: 2),
+                padding: const EdgeInsets.only(right: 10.0, top: 4),
                 child: GridView.count(
-                  childAspectRatio: 1 / 1.6,
-                  mainAxisSpacing: 13,
+                  childAspectRatio: 1 / 1.4,
+                  mainAxisSpacing: 15,
                   crossAxisCount: 2,
-                  crossAxisSpacing: 8,
+                  crossAxisSpacing: 10,
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  children: [],
+                  children: [
+                    forYou_widget("Shubhi Kat", true),
+                    forYou_widget("Akshay Kumar fam in a jet plane", false),
+                    forYou_widget("Urvashi Ruteala", true),
+                    forYou_widget("Amitabh Bachan Caught boxing", true),
+                    forYou_widget("Selena buys a new house", false),
+                    forYou_widget("Kylie", true)
+                  ],
                 ),
               ),
               SizedBox(height: 10),
