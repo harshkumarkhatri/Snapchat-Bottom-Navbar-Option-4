@@ -30,22 +30,8 @@ class _userDetailsState extends State<userDetails> {
           padding: const EdgeInsets.only(top: 25),
           child: AppBar(
             backgroundColor: Colors.white,
-            elevation: 5, automaticallyImplyLeading: false,
-            // actions: [
-            // Padding(
-            //   padding: const EdgeInsets.all(8.0),
-            //   child: Icon(
-            //     Icons.settings,
-            //     color: Colors.black,
-            //   ),
-            // ),
-            // ],
-            // leading: Icon(
-            //   Icons.keyboard_arrow_down,
-            //   color: Colors.black,
-            // ),
-
-            // TODO: Fix the appbar and extend it a bit.
+            elevation: 5,
+            automaticallyImplyLeading: false,
             title: Padding(
               padding: const EdgeInsets.all(18.0),
               child: Row(
